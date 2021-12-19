@@ -35,40 +35,22 @@ public class UserInterface extends Application {
 		
 		root.setPadding(new Insets(10));
 		
-		// Add a Button:
-		Button equalB = new Button();
-		equalB.setText("=");
-		equalB.setFont(Font.font ("Times New Roman", 15));
-		equalB.setTextFill(Color.DARKRED);
-		
-		Button addB = new Button();
-		addB.setText("+");
-		addB.setFont(Font.font ("Times New Roman", 15));
-		addB.setTextFill(Color.DARKRED);
-		
-		Button subtractB = new Button();
-		subtractB.setText("-");
-		subtractB.setFont(Font.font ("Times New Roman", 15));
-		subtractB.setTextFill(Color.DARKRED);
-		
-		Button divideB = new Button();
-		divideB.setText("/");
-		divideB.setFont(Font.font ("Times New Roman", 15));
-		divideB.setTextFill(Color.DARKRED);
-		
-		Button multiplyB = new Button();
-		multiplyB.setText("x");
-		multiplyB.setFont(Font.font ("Times New Roman", 15));
-		multiplyB.setTextFill(Color.DARKRED);
+		// Adding buttons:
+		Button equalB = createButton("=");
+		Button addB = createButton("+");
+		Button subtractB = createButton("-");
+		Button divideB = createButton("/");
+		Button multiplyB = createButton("x");
 		
 		// Add a textfield
 		TextField tf = new TextField();
 		
-		GridPane gp = new GridPane();
+		
+		GridPane gp = new GridPane(); // Aligns horizontally
 		gp.addRow(0, addB, subtractB, divideB, multiplyB, equalB);
+		
 		// Adding the items to the screen
 		root.getChildren().addAll(text, gp);
-		//root.getChildren().add(tf);
 		root.setAlignment(Pos.CENTER);
 		
 		Scene scene = new Scene(root); // SCENE
@@ -76,5 +58,17 @@ public class UserInterface extends Application {
 		stage.setTitle("Calculator");
 		stage.setScene(scene);
 		stage.show();
+	}
+	
+	public Button createButton(String sign) {
+		/*
+		 * All buttons have the same format, method returns a
+		 * button created.
+		 */
+		Button button = new Button();
+		button.setText(sign);
+		button.setFont(Font.font ("Times New Roman", 15));
+		button.setTextFill(Color.DARKRED);
+		return button;
 	}
 }
