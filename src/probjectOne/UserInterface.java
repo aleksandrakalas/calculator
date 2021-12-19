@@ -31,6 +31,10 @@ public class UserInterface extends Application {
 		text.setText("Follow the given instructions to use the calculator:");
 		text.setFont(Font.font ("Times New Roman", 15));
 		text.setFill(Color.RED);
+		Text text2 = new Text();
+		text2.setText("You must enter a number first, followed by a sign, and another number");
+		text2.setFont(Font.font ("Times New Roman", 15));
+		text2.setFill(Color.RED);
 		
 		VBox root = new VBox(); // LAYOUT
 		
@@ -56,15 +60,17 @@ public class UserInterface extends Application {
 		
 		// Add a textfield
 		TextField tf = new TextField();
+		//TextField tf2 = new TextField();
+		tf.setDisable(true);
 		
 		
 		GridPane gp = new GridPane(); // Aligns horizontally
 		gp.addRow(0, addB, subtractB, divideB, multiplyB, equalB);
 		gp.addRow(1, num0, num1, num2, num3, num4, num5, num6, num7, num8, num9);
-		
+		gp.addRow(2, tf);
 		// Adding the items to the screen
-		root.getChildren().addAll(text, gp);
-		root.setAlignment(Pos.CENTER);
+		root.getChildren().addAll(text, text2, gp);
+		//root.setAlignment(Pos.CENTER);
 		
 		Scene scene = new Scene(root); // SCENE
 		
