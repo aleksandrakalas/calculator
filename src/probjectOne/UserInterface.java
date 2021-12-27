@@ -1,6 +1,7 @@
 package probjectOne;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -59,22 +60,44 @@ public class UserInterface extends Application {
 		Button divideB = createButton("/");
 		Button multiplyB = createButton("x");
 		
+		Button clearB = createButton("CLEAR");
+		
 		// Add textfields
 		TextField tf = new TextField();
 		tf.setDisable(true);
 		
 		Text text3 = new Text();
 		text3.setText("");
-		//TextField tf2 = new TextField();
-		//tf2.setDisable(true);
+		text3.setFont(Font.font ("Times New Roman", 15));
+		text3.setFill(Color.RED);
 		
+		// Event Handlers for signs
+		CalculatorEventHandler ch = new CalculatorEventHandler(tf, text3);
+		equalB.addEventHandler(ActionEvent.ACTION, ch);
+		addB.addEventHandler(ActionEvent.ACTION, ch);
+		subtractB.addEventHandler(ActionEvent.ACTION, ch);
+		divideB.addEventHandler(ActionEvent.ACTION, ch);
+		multiplyB.addEventHandler(ActionEvent.ACTION, ch);
+		
+		// Event Handlers for numbers
+		num1.addEventHandler(ActionEvent.ACTION, ch);
+		num2.addEventHandler(ActionEvent.ACTION, ch);
+		num3.addEventHandler(ActionEvent.ACTION, ch);
+		num4.addEventHandler(ActionEvent.ACTION, ch);
+		num5.addEventHandler(ActionEvent.ACTION, ch);
+		num6.addEventHandler(ActionEvent.ACTION, ch);
+		num7.addEventHandler(ActionEvent.ACTION, ch);
+		num8.addEventHandler(ActionEvent.ACTION, ch);
+		num9.addEventHandler(ActionEvent.ACTION, ch);
+		num0.addEventHandler(ActionEvent.ACTION, ch);
+		
+		clearB.addEventHandler(ActionEvent.ACTION, ch);
 		
 		GridPane gp = new GridPane(); // Aligns horizontally
 		gp.addRow(1, addB, subtractB, divideB, multiplyB, equalB);
 		gp.addRow(2, num0, num1, num2, num3, num4, num5, num6, num7, num8, num9);
-		
 		// Adding the items to the screen
-		root.getChildren().addAll(text, text2, tf, gp, text3);
+		root.getChildren().addAll(text, text2, tf, gp, clearB, text3);
 		
 		Scene scene = new Scene(root); // SCENE
 		
@@ -85,6 +108,7 @@ public class UserInterface extends Application {
 		// MAKE EVENT HANDLERS FOR EVERY BUTTON
 		
 	}
+	
 	
 	public Button createButton(String sign) {
 		/*
