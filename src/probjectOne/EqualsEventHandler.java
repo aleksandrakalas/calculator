@@ -19,7 +19,7 @@ public class EqualsEventHandler implements EventHandler<ActionEvent>{
 		String t = source.getText();
 		if (num1 == null) {
 			if ((t == "+")||(t == "-")||(t == "/")||(t == "x")) {
-				
+				System.out.println("You must enter a number first");
 			}
 				
 		}

@@ -58,16 +58,20 @@ public class UserInterface extends Application {
 		Button divideB = createButton("/");
 		Button multiplyB = createButton("x");
 		
-		// Add a textfield
+		// Add textfields
 		TextField tf = new TextField();
-		//TextField tf2 = new TextField();
 		tf.setDisable(true);
+		
+		TextField tf2 = new TextField();
+		tf2.setDisable(true);
 		
 		
 		GridPane gp = new GridPane(); // Aligns horizontally
-		gp.addRow(0, addB, subtractB, divideB, multiplyB, equalB);
-		gp.addRow(1, num0, num1, num2, num3, num4, num5, num6, num7, num8, num9);
-		gp.addRow(2, tf);
+		gp.add(tf, 0, 0);
+		gp.addRow(1, addB, subtractB, divideB, multiplyB, equalB);
+		gp.addRow(2, num0, num1, num2, num3, num4, num5, num6, num7, num8, num9);
+		gp.add(tf2, 0, 3);
+		//gp.addRow(3, tf2);
 		// Adding the items to the screen
 		root.getChildren().addAll(text, text2, gp);
 		//root.setAlignment(Pos.CENTER);
