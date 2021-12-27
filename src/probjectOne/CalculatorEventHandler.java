@@ -60,9 +60,10 @@ public class CalculatorEventHandler implements EventHandler<ActionEvent>{
 		else if (t == "CLEAR") {
 			clearButton();
 		}
-		else if ((t == "=")&&(num1 != "")&&(num2 != "")&&(sign != "")) {
+		if ((t == "=")&&(num1 != "")&&(num2 != "")&&(sign != "")) {
 			String result = calculate(num1, num2, sign);
-			this.tf.setText(result);
+			System.out.println(result);
+			tf.setText(result);
 		}
 	}
 
