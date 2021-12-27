@@ -26,6 +26,9 @@ public class CalculatorEventHandler implements EventHandler<ActionEvent>{
 		 */
 		Button source=(Button)event.getSource();
 		String t = source.getText();
+		if (t == "CLEAR") {
+			clearButton();
+		}
 		if (num1 == "") {
 			if ((t == "+")||(t == "-")||(t == "/")||(t == "x")||(t == "=")) {
 				this.t.setText("You must enter a number first");
@@ -56,9 +59,6 @@ public class CalculatorEventHandler implements EventHandler<ActionEvent>{
 				sign = t;
 				setText();
 			}
-		}
-		else if (t == "CLEAR") {
-			clearButton();
 		}
 		if ((t == "=")&&(num1 != "")&&(num2 != "")&&(sign != "")) {
 			String result = calculate(num1, num2, sign);
@@ -96,7 +96,13 @@ public class CalculatorEventHandler implements EventHandler<ActionEvent>{
 	}
 
 	private void setText() {
-		tf.setText(num1 + sign + num2);
+		if ((num1 == "")&&(num2 == "")&&(sign == "")) {
+			tf.setText("");
+		}
+		else {
+			tf.setText(num1 + sign + num2);
+		}
+		
 		
 	}
 
@@ -105,11 +111,11 @@ public class CalculatorEventHandler implements EventHandler<ActionEvent>{
 		 * Clear the items, such as the numbers being used 
 		 * currently, on the screen 
 		 */
-		this.num1 = "";
-		this.num2 = "";
-		this.sign = "";
-		this.t.setText("");
-		this.tf.setText("");
+		num1 = "";
+		num2 = "";
+		sign = "";
+		t.setText("");
+		tf.setText("");
 	}
 
 }
