@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 
 public class UserInterface extends Application {
 
+
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -62,25 +63,27 @@ public class UserInterface extends Application {
 		TextField tf = new TextField();
 		tf.setDisable(true);
 		
-		TextField tf2 = new TextField();
-		tf2.setDisable(true);
+		Text text3 = new Text();
+		text3.setText("");
+		//TextField tf2 = new TextField();
+		//tf2.setDisable(true);
 		
 		
 		GridPane gp = new GridPane(); // Aligns horizontally
-		gp.add(tf, 0, 0);
 		gp.addRow(1, addB, subtractB, divideB, multiplyB, equalB);
 		gp.addRow(2, num0, num1, num2, num3, num4, num5, num6, num7, num8, num9);
-		gp.add(tf2, 0, 3);
-		//gp.addRow(3, tf2);
+		
 		// Adding the items to the screen
-		root.getChildren().addAll(text, text2, gp);
-		//root.setAlignment(Pos.CENTER);
+		root.getChildren().addAll(text, text2, tf, gp, text3);
 		
 		Scene scene = new Scene(root); // SCENE
 		
 		stage.setTitle("Calculator");
 		stage.setScene(scene);
 		stage.show();
+		
+		// MAKE EVENT HANDLERS FOR EVERY BUTTON
+		
 	}
 	
 	public Button createButton(String sign) {
